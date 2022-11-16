@@ -1,3 +1,5 @@
+let localS = document.querySelector(".localS")
+localS.innerHTML="Total de inimigos derrotados: 0"
 let a
 let pontos = 10
 let pontuacao = document.querySelector(".pontos");
