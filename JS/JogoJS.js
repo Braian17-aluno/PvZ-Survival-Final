@@ -4,10 +4,10 @@ let pontuacao = document.querySelector(".pontos");
 let contadorW = 0;
 let contadorP = 0;
 let cont = 0;
-let m
-let z
-let n
-let b 
+let m;
+let z;
+let n;
+let b = 0;
 document.querySelector("#atirar").addEventListener("click",()=>{botaoatira()});
 document.querySelector("#baixo").addEventListener("click",()=>{move('baixo')});
 document.querySelector("#acima").addEventListener("click", ()=>{move('acima')});
@@ -16,7 +16,7 @@ document.querySelector(".Inst").addEventListener("click",()=>{InstSumir()})
 
 function InstSumir(){
     let Inst = document.querySelector(".Inst")
-    Inst.setAttribute("class","Sumir")
+    Inst.setAttribute("class","Sumir");
 }
 
 function iniciar(){
@@ -100,6 +100,8 @@ function moveresquerda1(){
     }
 }
 function reiniciar(){
+    let localS = document.querySelector(".localS")
+    localS.innerHTML = "Total de inimigos derrotados: " + localStorage.getItem("Kills");
     remover();
     clearInterval(a);
     clearInterval(n);
@@ -111,9 +113,9 @@ function reiniciar(){
         botaoR.innerHTML="Você venceu! Clique aqui para reiniciar o jogo."
     }
     if(contadorP>0){
-        let area = document.querySelector("#area")
-        let player = document.querySelector('.player');
-        area.removeChild(player);
+        let area = document.querySelector("#area");
+        let player = document.querySelector(".player")
+        area.removeChild(player)
         botaoR.innerHTML="Você perdeu! Clique aqui para reiniciar o jogo."
     }
     botaoR.addEventListener("click",()=>{
@@ -128,6 +130,7 @@ window.addEventListener('load', () => {
 player.style.position = 'relative';
 player.style.left = 0;
 player.style.top = 0;
+localStorage.setItem("Kills", b);
 });
 
 window.addEventListener('keydown', (e) => {
@@ -230,16 +233,12 @@ function atirar(){
 
         if (((tiroLeft >= div1Left)&&(tiroLeft <= div1Left + div1Width))&&
             ((tiroTop >= div1Top)&&(tiroTop <= div1Top + div1Height))){
-
                 para();
-                
         }
         
         if (((tiroLeft >= div2Left)&&(tiroLeft <= div2Left + div2Width))&&
             ((tiroTop >= div2Top)&&(tiroTop <= div2Top + div2Height))){
-                para2();
-                
-            
+                para2(); 
         }
         
         let balaDireita = parseInt(window.getComputedStyle(tiro).getPropertyValue("left"));
@@ -257,8 +256,8 @@ function remover(){
 // Transportar Inimigos e Armazenar Info no localStorage
 function para2(){
     pontos+=2
-    b+=1
-    localStorage.setItem('Kills',b)
+    b++
+    localStorage.setItem("Kills",b)
     let div2 = document.querySelector("#div2")
     div2.style.left = Math.floor(Math.random()*50 + 35)+"vw"
     div2.style.top = Math.floor(Math.random()*25 + 1)+"vw"
@@ -271,8 +270,8 @@ function para2(){
 }
 function para(){
     pontos+=2
-    b+=1
-    localStorage.setItem('Kills',b)
+    b++
+    localStorage.setItem("Kills", b)
     let div1 = document.querySelector("#div1")
     div1.style.left = Math.floor(Math.random()*50 + 35)+"vw"
     div1.style.top = Math.floor(Math.random()*25 + 1)+"vw"
