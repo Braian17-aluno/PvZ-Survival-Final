@@ -1,0 +1,61 @@
+<!DOCTYPE >
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PvZ Survival</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+	<link rel="manifest" href="./manifest.json"/>
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('./sw.js')
+			 .then(function(){console.log('service worker registered');})
+			 .catch(function(){console.log('service worker failed'); });
+		}
+	  </script>
+    </head>
+	<body>
+		
+		<div class="fundo" id="fundo">
+			<div class="tiros"></div>
+		<div class="area" id="area">
+		
+		<div id="div2">
+			<img src="../Imagens/enemy3.png" alt="enemy">
+		</div>
+		<div id="div1">
+			<img src="../Imagens/enemy3.png" alt="enemy">
+		</div>
+
+		<div class="player"><img src="../Imagens/player2.png" alt="player"></div>
+		
+		</div>
+	</div> 
+	<button class="botaoStart" id="botaoS">Clique aqui para começar o jogo.</button>
+	<button class="botaoReplay" id="botaoR"></button>
+	<div class="painelAlt">
+	<div class="pontos">Pontuação: 10</div>
+	<div class="localS">Total de inimigos derrotados: 209</div>
+	</div>
+		<button class="Inst">
+			Use as teclas 'w' para se mexer pra cima e 's' para se mexer pra baixo (ou use as flechas).
+			 Use a tecla 'q' (ou aperte o botão das ervilhas) para COMEÇAR a atirar. Você não vai parar de atirar depois disso.
+			 Quando você acertar um inimigo você ganha dois pontos, com 20 pontos você ganha.
+			 Se um inimigo tocar no fundo do gramado você perde um ponto, com 0 pontos você perde.
+			 Se um inimigo te tocar você perde instantaneamente. (Clique nessa janela para fecha-lá)
+		</button>
+	
+
+
+		<div class="painel">
+				<div class="botoes2">
+				<button type="button" id="atirar"><img src="../Imagens/ervilha.png" alt="bala"></button>
+				<button type="button"  id="acima"><img src="../Imagens/Up.png" alt="cima"></button><br>
+				</div>
+				<button type="button"  id="baixo" ><img src="../Imagens/Down.png" alt="baixo"></button>
+		</div>
+		
+		
+		<script src="../JS/JogoJS.js"></script>
+	</body>
+</html>
